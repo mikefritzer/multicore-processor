@@ -19,5 +19,5 @@ module NextPClogic(NextPC, CurrentPC, SignExtImm64, Branch, ALUZero, Uncondbranc
        assign muxOutput = muxControl ? shiftSignExt : 4;
 
        wire [63:0] sum = CurrentPC + muxOutput;
-       assign NextPC = muxControl ? #3 sum : #2 sum;
+       assign #2 NextPC = sum;
 endmodule
